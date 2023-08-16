@@ -19,10 +19,12 @@ def write_fact(fact: str):
     return "Success!!"
 
 @flow
-def pipe():
+def pipe(name: str = "Ovo"):
+    logger = get_run_logger()
     fact = fetch_cat_fact()
     formatted_fact = formatting(fact)
     msg = write_fact(formatted_fact)
+    logger.info(f"printing name variable---{name}")
     print(msg)
 
 if __name__ == "__main__":
